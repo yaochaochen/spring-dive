@@ -10,4 +10,8 @@
         <property name="name" value="Spring-dive"/>
     </bean>
 
+    <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName" value="user"/>
+    </bean>
+
 </beans>
