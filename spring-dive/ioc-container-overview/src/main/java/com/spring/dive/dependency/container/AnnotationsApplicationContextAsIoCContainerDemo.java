@@ -3,7 +3,6 @@ package com.spring.dive.dependency.container;
 import com.spring.dive.dependency.domain.User;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +19,7 @@ public class AnnotationsApplicationContextAsIoCContainerDemo {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(AnnotationsApplicationContextAsIoCContainerDemo.class);
         applicationContext.refresh();
+        applicationContext.close();
         lookupCollectionByType(applicationContext);
     }
 

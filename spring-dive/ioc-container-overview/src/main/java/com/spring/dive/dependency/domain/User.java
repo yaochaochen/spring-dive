@@ -3,9 +3,9 @@ package com.spring.dive.dependency.domain;
 import com.spring.dive.dependency.enums.City;
 import org.springframework.core.io.Resource;
 
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-
 import java.util.Arrays;
 import java.util.List;
 
