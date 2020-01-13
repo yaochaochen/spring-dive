@@ -2,9 +2,13 @@ package com.spring.dive.beans;
 
 import com.spring.dive.dependency.domain.User;
 import org.springframework.beans.MutablePropertyValues;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
+
+import java.util.Map;
 
 /**
  * BeanDefinition 实例
@@ -29,5 +33,14 @@ public class BeanDefinitionCreateDemo {
         mutablePropertyValues.addPropertyValue("name", "Spring");
         genericBeanDefinition.setPropertyValues(mutablePropertyValues);
 
+    }
+
+    private static void lookupCollectionByType(BeanFactory beanFactory) {
+
+        if (beanFactory instanceof ListableBeanFactory) {
+            ListableBeanFactory listableBeanFactory = (ListableBeanFactory) beanFactory;
+            Map<String, User> users = listableBeanFactory.getBeansOfType(User.class);
+            System.out.println("查找所有的 User 集合对象" + users);
+        }
     }
 }
