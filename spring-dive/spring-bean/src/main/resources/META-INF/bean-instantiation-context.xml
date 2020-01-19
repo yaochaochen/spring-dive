@@ -8,10 +8,15 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/beans/spring-context.xsd">
 
+    <!-- 静态方法实例化 Bean -->
     <bean id="user-by-static-method" class="com.spring.dive.dependency.domain.User"
           factory-method="createUser"/>
 
+    <!-- 实例（Bean）方法实例化 Bean -->
     <bean id="user-by-instance-method" factory-bean="userFactory" factory-method="createUser"/>
 
+    <!--FactoryBean实例化 Bean-->
     <bean id="userFactory" class="com.spring.dive.beans.factory.DefaultUserFactory"/>
+
+    <bean id="user-by-factory-method" class="com.spring.dive.beans.factory.UserFactoryBean"/>
 </beans>
