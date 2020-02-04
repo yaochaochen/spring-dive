@@ -12,10 +12,17 @@ public class ObjectProviderDemo {
         applicationContext.register(ObjectProviderDemo.class);
         applicationContext.refresh();
         lookupObjectProvider(applicationContext);
+        //延迟查找
         lookupAvailable(applicationContext);
-
+        //Stream 操作
+        lookupObjectProviderOps(applicationContext);
         applicationContext.close();
 
+    }
+
+    private static void lookupObjectProviderOps(AnnotationConfigApplicationContext applicationContext) {
+        ObjectProvider<String> objectProvider = applicationContext.getBeanProvider(String.class);
+        objectProvider.stream().forEach(System.out::println);
     }
 
     private static void lookupAvailable(AnnotationConfigApplicationContext applicationContext) {
@@ -29,6 +36,11 @@ public class ObjectProviderDemo {
     @Bean
     public String helloWorld() {
         return "hello World";
+    }
+
+    @Bean
+    public String message() {
+        return "Message";
     }
 
     private static void lookupObjectProvider(AnnotationConfigApplicationContext applicationContext) {
