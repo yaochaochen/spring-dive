@@ -1,7 +1,10 @@
 package com.spring.dive.dependency.injection;
 
+import com.spring.dive.dependency.domain.SuperUser;
+import com.spring.dive.dependency.domain.User;
 import com.spring.dive.dependency.repository.UserRepository;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.Environment;
@@ -11,6 +14,12 @@ import org.springframework.core.env.Environment;
  */
 public class DependencyInjectionDemo {
 
+
+    @Autowired
+    private static User user;
+
+    @Autowired
+    private static SuperUser superUser;
 
     public static void main(String[] args) {
 
