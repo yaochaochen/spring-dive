@@ -1,10 +1,12 @@
 package com.spring.dive.beans;
 
 import com.spring.dive.dependency.domain.User;
+import org.springframework.beans.BeanMetadataAttribute;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.support.AutowireCandidateQualifier;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 
@@ -32,6 +34,7 @@ public class BeanDefinitionCreateDemo {
         mutablePropertyValues.addPropertyValue("age", 1);
         mutablePropertyValues.addPropertyValue("name", "Spring");
         genericBeanDefinition.setPropertyValues(mutablePropertyValues);
+        AutowireCandidateQualifier autowireCandidateQualifier = new AutowireCandidateQualifier(User.class);;
 
     }
 
